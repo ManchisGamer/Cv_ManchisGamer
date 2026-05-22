@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- ============================================================
+         SEO — Personaliza estos datos con tu información real
+    ============================================================ -->
+    <title>Manchis_Gamer | Python & Flask Developer</title>
+    <meta name="description" content="Portafolio profesional de Manchis_Gamer — desarrollador Python y Flask apasionado por construir aplicaciones web modernas." />
+    <meta name="author" content="Martín Forero Camacho" />
+
+    <!-- Open Graph (vista previa al compartir en redes) -->
+    <meta property="og:title" content="Manchis_Gamer | Python Developer" />
+    <meta property="og:description" content="Desarrollador Python & Flask — Conoce mis proyectos y habilidades." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Inter + Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Íconos (Lucide via CDN) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+
+  <body>
+
+    <!-- ============================================================
+         CURSOR PERSONALIZADO
+    ============================================================ -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- ============================================================
+         FONDO ANIMADO (partículas / grid)
+    ============================================================ -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         BARRA DE NAVEGACIÓN
+    ============================================================ -->
+    <header class="navbar" id="navbar">
+      <nav class="navbar__inner" aria-label="Navegación principal">
+        <!-- Logo / alias -->
+        <a class="navbar__logo" href="#hero" id="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          TuAlias
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+
+        <!-- Links -->
+        <ul class="navbar__links" id="nav-links">
+          <li><a class="nav-link" href="#hero"      id="nav-home">Inicio</a></li>
+          <li><a class="nav-link" href="#about"     id="nav-about">Sobre mí</a></li>
+          <li><a class="nav-link" href="#skills"    id="nav-skills">Habilidades</a></li>
+          <li><a class="nav-link" href="#projects"  id="nav-projects">Proyectos</a></li>
+          <li><a class="nav-link" href="#contact"   id="nav-contact">Contacto</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <a class="btn btn--outline navbar__cta" href="#contact" id="nav-cta">
+          Contáctame
+        </a>
+
+        <!-- Hamburger (móvil) -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ============================================================
+           SECCIÓN HERO
+      ============================================================ -->
+      <section class="hero" id="hero">
+        <div class="hero__content">
+
+          <!-- Etiqueta de disponibilidad -->
+          <div class="hero__badge" id="hero-badge">
+            <span class="badge-dot"></span>
+            Disponible para proyectos
+          </div>
+
+          <!-- Saludo y nombre -->
+          <p class="hero__greeting">Hola, soy</p>
+          <h1 class="hero__name" id="hero-name">
+            &nbsp;<span class="gradient-text">Manchis_Gamer</span>
+          </h1>
+
+          <!-- Rol con efecto typewriter -->
+          <p class="hero__role">
+            <span class="role-prefix">$ </span>
+            <span class="typewriter" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
+          </p>
+
+          <!-- Bio corta -->
+          <p class="hero__bio">
+            <!-- ✏️ Escribe aquí una descripción breve tuya (1–2 líneas) -->
+            Apasionado por construir aplicaciones web con Python y Flask.
+            Me encanta transformar ideas en código limpio y elegante.
+          </p>
+
+          <!-- Botones de acción -->
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects" id="hero-btn-projects">
+              Ver mis proyectos
+              <i data-lucide="arrow-right" class="btn-icon"></i>
+            </a>
+            <a class="btn btn--ghost" href="http://127.0.0.1:5500/cv.pdf" download id="hero-btn-cv">
+              <!-- ✏️ Cambia href por la ruta de tu CV -->
+              Descargar CV
+              <i data-lucide="download" class="btn-icon"></i>
+            </a>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="hero__social" aria-label="Redes sociales">
+            <a class="social-link" href="https://github.com/ManchisGamer" target="_blank" rel="noopener" id="social-github" aria-label="GitHub">
+              <!-- ✏️ Reemplaza # con tu URL de GitHub -->
+              <i data-lucide="github"></i>
+            </a>
+            <a class="social-link" href="https://www.youtube.com/@ManchisSSJ" target="_blank" rel="noopener" id="social-linkedin" aria-label="LinkedIn">
+              <!-- ✏️ Reemplaza # con tu URL de LinkedIn -->
+              <i data-lucide="linkedin"></i>
+            </a>
+            <a class="social-link" href="mailto:manchisgamer15@email.com" id="social-email" aria-label="Email">
+              <!-- ✏️ Reemplaza con tu email -->
+              <i data-lucide="mail"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Foto de perfil / avatar -->
+        <div class="hero__visual">
+          <div class="avatar-wrapper">
+            <div class="avatar-ring avatar-ring--outer"></div>
+            <div class="avatar-ring avatar-ring--inner"></div>
+            <div class="avatar-img-box">
+              <!-- ✏️ Reemplaza src con tu foto -->
+              <img
+                class="avatar-img"
+                src="{{ url_for('static', filename='img/profile1.png') }}"
+                alt="Foto de perfil de Tu Nombre"
+                width="280"
+                height="280"
+              />
+            </div>
+            <!-- Chips flotantes -->
+            <div class="avatar-chip avatar-chip--tl" aria-hidden="true">
+              <i data-lucide="code-2"></i> Python
+            </div>
+            <div class="avatar-chip avatar-chip--br" aria-hidden="true">
+              <i data-lucide="zap"></i> Flask
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero__scroll-hint" aria-hidden="true">
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+          <span>Scroll</span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN SOBRE MÍ
+      ============================================================ -->
+      <section class="section about" id="about">
+        <div class="section__inner">
+
+          <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">01. Sobre mí</span>
+          </div>
+
+          <div class="about__grid">
+            <!-- Texto -->
+            <div class="about__text">
+              <h2 class="section-title">¿Quién soy?</h2>
+              <p class="about__bio">
+                <!-- ✏️ Reemplaza con tu historia personal -->
+                Soy estudiante de bachillerato apasionado por el desarrollo web y la creación de juegos.
+                Me especializo en Python, Flask, Lua, y C#, y disfruto crear proyectos que mezclan
+                lógica sólida con diseño atractivo.
+              </p>
+              <p class="about__bio">
+                <!-- ✏️ Agrega más detalles: universidad, intereses, etc. -->
+                Cuando no estoy programando, me encontrarás leyendo sobre inteligencia artificial y computación
+                o explorando nuevas tecnologías poco conocidas.
+              </p>
+
+              <!-- Stats rápidas -->
+              <div class="about__stats">
+                <div class="stat-card" id="stat-projects">
+                  <span class="stat-card__num">+5</span>
+                  <span class="stat-card__label">Proyectos</span>
+                </div>
+                <div class="stat-card" id="stat-skills">
+                  <span class="stat-card__num">5+</span>
+                  <span class="stat-card__label">Tecnologías</span>
+                </div>
+                <div class="stat-card" id="stat-exp">
+                  <span class="stat-card__num">4</span>
+                  <span class="stat-card__label">Años estudiando</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Imagen / terminal decorativa -->
+            <div class="about__visual">
+              <div class="terminal-card" id="about-terminal">
+                <div class="terminal-card__bar">
+                  <span class="tc-dot tc-dot--red"></span>
+                  <span class="tc-dot tc-dot--yellow"></span>
+                  <span class="tc-dot tc-dot--green"></span>
+                  <span class="tc-title">about_me.py</span>
+                </div>
+                <pre class="terminal-card__code"><code><span class="tc-keyword">class</span> <span class="tc-class">Developer</span>:
+
+  <span class="tc-keyword">def</span> <span class="tc-fn">__init__</span>(self):
+    self.nombre   = <span class="tc-str">"Manchis"</span>
+    self.rol      = <span class="tc-str">"Python Dev"</span>
+    self.ciudad   = <span class="tc-str">"Tenjo"</span>
+    self.hobbies  = [
+      <span class="tc-str">"Programar"</span>,
+      <span class="tc-str">"Aprender"</span>,
+      <span class="tc-str">"Crear"</span>
+      <span class="tc-str">"Diseñar"</span>
+    ]
+
+  <span class="tc-keyword">def</span> <span class="tc-fn">saludo</span>(self):
+    <span class="tc-keyword">return</span> <span class="tc-str">"¡Hola Mundo! 👋"</span>
+
+
+<span class="tc-comment"># Instancia tu portafolio</span>
+yo = <span class="tc-class">Developer</span>()
+<span class="tc-fn">print</span>(yo.saludo())</code></pre>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN HABILIDADES
+      ============================================================ -->
+      <section class="section skills" id="skills">
+        <div class="section__inner">
+
+          <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">02. Habilidades</span>
+          </div>
+
+          <h2 class="section-title">Mi Stack Tecnológico</h2>
+
+          <!-- ✏️ Agrega, elimina o modifica las tarjetas de habilidad -->
+          <form action="/" method="POST" class="skills__form" id="skills-form">
+            <div class="skills__grid">
+
+              <!-- SKILL CARD: Python -->
+              <div class="skill-card" id="skill-python">
+                <div class="skill-card__icon-wrap">
+                  <img
+                    class="skill-card__icon"
+                    src="{{ url_for('static', filename='img/python.png') }}"
+                    alt="Python"
+                    width="64"
+                    height="64"
+                  />
+                </div>
+                <h3 class="skill-card__name">Python</h3>
+                <p class="skill-card__desc">
+                  <!-- ✏️ Escribe tu nivel y experiencia con esta tecnología -->
+                  Backend, scripting, automatización y varieded de lenguajes
+                </p>
+                <div class="skill-card__bar">
+                  <div class="skill-card__progress" style="--progress: 85%"></div>
+                </div>
+                <button class="btn btn--sm btn--outline skill-card__btn" type="submit" name="skill_selected" value="python" id="btn-python">
+                  Ver proyecto <i data-lucide="external-link" class="btn-icon"></i>
+                </button>
+              </div>
+
+              <!-- SKILL CARD: Flask -->
+              <div class="skill-card" id="skill-flask">
+                <div class="skill-card__icon-wrap">
+                  <!-- ✏️ Puedes usar un logo de Flask o el ícono que prefieras -->
+                  <img
+                    class="skill-card__icon"
+                    src="{{ url_for('static', filename='img/flask.png') }}"
+                    alt="HTML & CSS"
+                    width="64"
+                    height="64"
+                  />
+                </div>
+                <h3 class="skill-card__name">Flask</h3>
+                <p class="skill-card__desc">
+                  APIs REST y aplicaciones web
+                </p>
+                <div class="skill-card__bar">
+                  <div class="skill-card__progress" style="--progress: 75%"></div>
+                </div>
+                <button class="btn btn--sm btn--outline skill-card__btn" type="submit" name="skill_selected" value="flask" id="btn-flask">
+                  Ver proyecto <i data-lucide="external-link" class="btn-icon"></i>
+                </button>
+              </div>
+
+              <!-- SKILL CARD: HTML/CSS -->
+              <div class="skill-card" id="skill-html">
+                <div class="skill-card__icon-wrap">
+                  <img
+                    class="skill-card__icon"
+                    src="{{ url_for('static', filename='img/html.png') }}"
+                    alt="HTML & CSS"
+                    width="64"
+                    height="64"
+                  />
+                </div>
+                <h3 class="skill-card__name">HTML & CSS</h3>
+                <p class="skill-card__desc">
+                  Maquetación y diseño responsive
+                </p>
+                <div class="skill-card__bar">
+                  <div class="skill-card__progress" style="--progress: 80%"></div>
+                </div>
+                <button class="btn btn--sm btn--outline skill-card__btn" type="submit" name="skill_selected" value="html" id="btn-html">
+                  Ver proyecto <i data-lucide="external-link" class="btn-icon"></i>
+                </button>
+              </div>
+
+              <!-- SKILL CARD: SQL / Bases de datos -->
+              <div class="skill-card" id="skill-db">
+                <div class="skill-card__icon-wrap">
+                  <img
+                    class="skill-card__icon"
+                    src="{{ url_for('static', filename='img/db.webp') }}"
+                    alt="SQL"
+                    width="64"
+                    height="64"
+                  />
+                </div>
+                <h3 class="skill-card__name">SQL / DB</h3>
+                <p class="skill-card__desc">
+                  Modelado y consultas de bases de datos
+                </p>
+                <div class="skill-card__bar">
+                  <div class="skill-card__progress" style="--progress: 70%"></div>
+                </div>
+                <button class="btn btn--sm btn--outline skill-card__btn" type="submit" name="skill_selected" value="db" id="btn-db">
+                  Ver proyecto <i data-lucide="external-link" class="btn-icon"></i>
+                </button>
+              </div>
+
+              <!-- ✏️ SKILL CARD EXTRA — Agrega tus propias tecnologías -->
+              <div class="skill-card skill-card--add" id="skill-extra">
+                <div class="skill-card__icon-wrap">
+                  <div class="skill-card__emoji">➕</div>
+                </div>
+                <h3 class="skill-card__name">Tu Tecnología</h3>
+                <p class="skill-card__desc">
+                  Descripción breve de tu habilidad
+                </p>
+                <div class="skill-card__bar">
+                  <div class="skill-card__progress" style="--progress: 60%"></div>
+                </div>
+                <button class="btn btn--sm btn--outline skill-card__btn" type="submit" name="skill_selected" value="extra" id="btn-extra">
+                  Ver proyecto <i data-lucide="external-link" class="btn-icon"></i>
+                </button>
+              </div>
+
+            </div>
+          </form>
+
+          <!-- ============================================================
+               PROYECTO DESTACADO (mostrado por Jinja2 al hacer POST)
+               Flask envía la variable `skill_selected` al template
+          ============================================================ -->
+          {% if skill_selected %}
+          <div class="project-showcase" id="project-showcase">
+            <div class="project-showcase__header">
+              <h3 class="project-showcase__title">
+                <i data-lucide="folder-open" class="btn-icon"></i>
+                Proyecto destacado — {{ skill_selected | capitalize }}
+              </h3>
+              <a class="btn btn--sm btn--ghost" href="#skills" id="close-project">
+                <i data-lucide="x"></i> Cerrar
+              </a>
+            </div>
+            <div class="project-showcase__body">
+              <!-- ✏️ Reemplaza la imagen con la captura de tu proyecto -->
+              <img
+                class="project-showcase__img"
+                src="{{ url_for('static', filename='img/project_preview.png') }}"
+                alt="Captura del proyecto"
+              />
+              <div class="project-showcase__info">
+                <p class="project-showcase__desc">
+                  <!-- ✏️ Describe tu proyecto aquí -->
+                  Este proyecto es un diario virtual completamente automatizado, si quieres 
+                  guardar tus cosas importantes no te preocupes por olvidarlas, además
+                  como utiliza bases de datos propias es más seguro.
+                </p>
+                <div class="project-showcase__links">
+                  <a class="btn btn--primary btn--sm" href="https://github.com/ManchisGamer/Diario-Virtual" target="_blank" id="link-github-project">
+                    <!-- ✏️ Reemplaza # con el link de tu repositorio -->
+                    <i data-lucide="github" class="btn-icon"></i> Ver en GitHub
+                  </a>
+                  <a class="btn btn--outline btn--sm" href="https://diario-virtual.onrender.com" target="_blank" id="link-demo-project">
+                    <!-- ✏️ Reemplaza # con el link del demo (si aplica) -->
+                    <i data-lucide="globe" class="btn-icon"></i> Demo en vivo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN PROYECTOS DESTACADOS (tarjetas estáticas)
+      ============================================================ -->
+      <section class="section projects" id="projects">
+        <div class="section__inner">
+
+          <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">03. Proyectos</span>
+          </div>
+
+          <h2 class="section-title">Lo que he construido</h2>
+
+          <div class="projects__grid">
+
+            <!-- ✏️ PROYECTO 1 — Reemplaza con tu primer proyecto real -->
+            <article class="project-card" id="project-card-1">
+              <div class="project-card__top">
+                <i data-lucide="folder" class="project-card__folder"></i>
+                <div class="project-card__links">
+                  <a class="project-card__link" href="https://github.com/ManchisGamer/Eco-_Bot" target="_blank" aria-label="GitHub" id="p1-github">
+                    <i data-lucide="github"></i>
+                  </a>
+                  <a class="project-card__link" href="https://github.com/ManchisGamer/Eco-_Bot" target="_blank" aria-label="Demo" id="p1-demo">
+                    <i data-lucide="external-link"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-card__title">Eco Bot</h3>
+              <p class="project-card__desc">
+                🌱 EcoBot es un bot de Discord diseñado para promover el cuidado del medio ambiente de forma divertida e interactiva. 🌎
+Con comandos educativos, retos ecológicos, consejos sostenibles y sistemas de recompensas, EcoBot ayuda a crear una comunidad más consciente y comprometida con el planeta. ♻️✨
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag">Python</li>
+                <li class="tag">discord.py</li>
+                <li class="tag">Venv</li>
+              </ul>
+            </article>
+
+            <!-- ✏️ PROYECTO 2 -->
+            <article class="project-card" id="project-card-2">
+              <div class="project-card__top">
+                <i data-lucide="folder" class="project-card__folder"></i>
+                <div class="project-card__links">
+                  <a class="project-card__link" href="https://github.com/ManchisGamer/Calculadora-Ecologica-M3L3" target="_blank" aria-label="GitHub" id="p2-github">
+                    <i data-lucide="github"></i>
+                  </a>
+                  <a class="project-card__link" href="https://github.com/ManchisGamer/Calculadora-Ecologica-M3L3" target="_blank" aria-label="Demo" id="p2-demo">
+                    <i data-lucide="external-link"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-card__title">Eco Calculadora</h3>
+              <p class="project-card__desc">
+                ⚡🌍 EcoCalc es una página web interactiva diseñada para calcular el impacto ambiental de tu consumo eléctrico.
+La plataforma analiza el uso de energía de tus dispositivos y estima cuánto contribuyen al consumo energético y a las emisiones de CO₂, ayudándote a tomar decisiones más sostenibles. ♻️💡
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag">Python</li>
+                <li class="tag">API</li>
+                <li class="tag">HTML</li>
+              </ul>
+            </article>
+
+
+          <!-- Link a GitHub completo -->
+          <div class="projects__more">
+            <a class="btn btn--outline" href="https://github.com/ManchisGamer" target="_blank" id="btn-github-all">
+              Ver más en GitHub <i data-lucide="github" class="btn-icon"></i>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN CONTACTO
+      ============================================================ -->
+      <section class="section contact" id="contact">
+        <div class="section__inner contact__inner">
+
+          <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">04. Contacto</span>
+          </div>
+
+          <h2 class="section-title">Trabajemos juntos</h2>
+          <p class="contact__subtitle">
+            ¿Tienes un proyecto en mente? ¡Escríbeme y lo construimos!
+          </p>
+
+          <!-- Formulario de contacto -->
+          <form class="contact__form" action="" method="POST" id="contact-form" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Nombre</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Tu nombre"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Correo electrónico</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="tu@correo.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">Asunto</label>
+              <input
+                class="form-input"
+                type="text"
+                id="contact-subject"
+                name="subject"
+                placeholder="¿En qué puedo ayudarte?"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Mensaje</label>
+              <textarea
+                class="form-input form-textarea"
+                id="contact-message"
+                name="message"
+                rows="5"
+                placeholder="Cuéntame sobre tu proyecto o idea..."
+                required
+              ></textarea>
+            </div>
+
+            <button class="btn btn--primary btn--full" type="submit" id="contact-submit">
+              Enviar mensaje <i data-lucide="send" class="btn-icon"></i>
+            </button>
+
+          </form>
+
+          <!-- Info de contacto alternativa -->
+          <div class="contact__alternatives">
+            <a class="contact-chip" href="mailto:manchisgamer15@gmail.com" id="chip-email">
+              <i data-lucide="mail"></i>
+              Email
+            </a>
+            <a class="contact-chip" href="https://github.com/ManchisGamer" target="_blank" id="chip-github">
+              <!-- ✏️ Reemplaza # con tu URL de GitHub -->
+              <i data-lucide="github"></i>
+              GitHub
+            </a>
+            <a class="contact-chip" href="https://www.youtube.com/@ManchisSSJ" target="_blank" id="chip-linkedin">
+              <!-- ✏️ Reemplaza # con tu URL de LinkedIn -->
+              <i data-lucide="Youtube"></i>
+              Youtube
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <p class="footer__copy">
+          Diseñado y construido con ❤️ por
+          <span class="gradient-text">Manchis_Gamer15</span>
+          · {{ 2026 }}
+        </p>
+        <p class="footer__stack">
+          Hecho con
+          <a href="https://python.org" target="_blank" rel="noopener">Python</a> +
+          <a href="https://flask.palletsprojects.com" target="_blank" rel="noopener">Flask</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+         SCRIPTS
+    ============================================================ -->
+    <script>
+      // ── Inicializar íconos Lucide ──────────────────────────────
+      lucide.createIcons();
+
+      // ── Cursor personalizado ──────────────────────────────────
+      const dot  = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      });
+
+      (function animateRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+        requestAnimationFrame(animateRing);
+      })();
+
+      document.querySelectorAll('a, button, .skill-card').forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('ring--hover'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('ring--hover'));
+      });
+
+      // ── Navbar: scroll effect ─────────────────────────────────
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('navbar--scrolled', window.scrollY > 50);
+      });
+
+      // ── Hamburger menu (móvil) ────────────────────────────────
+      const hamburger = document.getElementById('hamburger');
+      const navLinks  = document.getElementById('nav-links');
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !open);
+        navLinks.classList.toggle('nav-links--open');
+        hamburger.classList.toggle('hamburger--open');
+      });
+
+      // ── Typewriter effect ─────────────────────────────────────
+      // ✏️ Personaliza las frases del efecto typewriter
+      const phrases = [
+        'Python Developer',
+        'Flask Developer',
+        'Web Developer',
+        'Problem Solver',
+        'Open Source Fan',
+      ];
+      let pi = 0, ci = 0, deleting = false;
+      const tw = document.getElementById('typewriter');
+
+      function typeLoop() {
+        const phrase = phrases[pi];
+        if (!deleting) {
+          tw.textContent = phrase.slice(0, ++ci);
+          if (ci === phrase.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
+        } else {
+          tw.textContent = phrase.slice(0, --ci);
+          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+        }
+        setTimeout(typeLoop, deleting ? 60 : 100);
+      }
+      typeLoop();
+
+      // ── Intersection Observer: animaciones al scroll ──────────
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            // Animar barras de progreso de habilidades
+            e.target.querySelectorAll('.skill-card__progress').forEach(bar => {
+              bar.style.width = bar.style.getPropertyValue('--progress');
+            });
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(
+        '.section, .skill-card, .project-card, .about__stats, .stat-card'
+      ).forEach(el => { el.classList.add('fade-in'); observer.observe(el); });
+
+      // ── Scroll suave para todos los links internos ────────────
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+          const target = document.querySelector(link.getAttribute('href'));
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+          navLinks.classList.remove('nav-links--open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.classList.remove('hamburger--open');
+        });
+      });
+
+      // ── Resaltar link activo según sección visible ────────────
+      const sections = document.querySelectorAll('section[id]');
+      const navLinkEls = document.querySelectorAll('.nav-link');
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navLinkEls.forEach(l => l.classList.remove('nav-link--active'));
+            const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+            if (active) active.classList.add('nav-link--active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      sections.forEach(s => sectionObserver.observe(s));
+
+      // ── Scroll suave al proyecto al hacer POST (skills) ───────
+      const projectShowcase = document.getElementById('project-showcase');
+      if (projectShowcase) {
+        projectShowcase.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    </script>
+
+  </body>
+</html>
